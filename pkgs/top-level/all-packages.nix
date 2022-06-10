@@ -8234,6 +8234,7 @@ in
     inherit (darwin.apple_sdk.frameworks) Foundation;
   })
     ruby_2_3
+    ruby_2_3_4
     ruby_2_4
     ruby_2_5
     ruby_2_6;
