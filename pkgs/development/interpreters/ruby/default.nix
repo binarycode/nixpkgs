@@ -42,7 +42,7 @@ let
       , openssl, opensslSupport ? true
       , gdbm, gdbmSupport ? true
       , ncurses, readline, cursesSupport ? true
-      , groff, docSupport ? true
+      , groff, docSupport ? false
       , libyaml, yamlSupport ? true
       , libffi, fiddleSupport ? true
       , jemalloc, jemallocSupport ? false
