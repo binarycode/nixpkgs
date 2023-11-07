@@ -269,7 +269,6 @@ mapAliases ({
   rng_tools = rng-tools; # added 2018-10-24
   robomongo = robo3t; #added 2017-09-28
   rssglx = rss-glx; #added 2015-03-25
-  ruby_2_0_0 = throw "deprecated 2018-0213: use a newer version of ruby";
   ruby_2_1_0 = throw "deprecated 2018-0213: use a newer version of ruby";
   ruby_2_2_9 = throw "deprecated 2018-0213: use ruby_2_2 instead";
   ruby_2_3_6 = throw "deprecated 2018-0213: use ruby_2_3 instead";
