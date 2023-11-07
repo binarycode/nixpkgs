@@ -32,6 +32,7 @@ let
   generic = { version, sha256 }: let
     ver = version;
     tag = ver.gitTag;
+    isRuby20 = ver.majMin == "2.0";
     atLeast25 = lib.versionAtLeast ver.majMin "2.5";
     baseruby = self.override { useRailsExpress = false; };
     self = lib.makeOverridable (
@@ -92,6 +93,8 @@ let
           ++ ops stdenv.isDarwin [ libiconv libobjc libunwind Foundation ];
 
         enableParallelBuilding = true;
+
+        hardeningDisable = lib.optional isRuby20 "format";
 
         patches =
           (import ./patchsets.nix {
@@ -198,6 +201,14 @@ let
     ) args; in self;
 
 in {
+  ruby_2_0_0 = generic {
+    version = rubyVersion "2" "0" "0" "p648";
+    sha256 = {
+      src = "1y3n4c6xw2wki7pyjpq5zpbgxnw5i3jc8mcpj6rk7hs995mvv446";
+      git = "0ncjfq4hfqj9kcr8pbll6kypwnmcgs8w7l4466qqfyv7jj3yjd76";
+    };
+  };
+
   ruby_2_3 = generic {
     version = rubyVersion "2" "3" "8" "";
     sha256 = {

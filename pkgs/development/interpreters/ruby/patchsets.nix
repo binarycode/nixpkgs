@@ -1,6 +1,15 @@
 { patchSet, useRailsExpress, ops, patchLevel }:
 
 rec {
+  "2.0.0" = [
+    ./ssl_v3.patch
+    ./rand-egd.patch
+  ] ++ ops useRailsExpress [
+    "${patchSet}/patches/ruby/2.0.0/p${patchLevel}/railsexpress/01-zero-broken-tests.patch"
+    "${patchSet}/patches/ruby/2.0.0/p${patchLevel}/railsexpress/02-railsexpress-gc.patch"
+    "${patchSet}/patches/ruby/2.0.0/p${patchLevel}/railsexpress/03-display-more-detailed-stack-trace.patch"
+    "${patchSet}/patches/ruby/2.0.0/p${patchLevel}/railsexpress/04-show-full-backtrace-on-stack-overflow.patch"
+  ];
   "2.3.4" = ops useRailsExpress [
     "${patchSet}/patches/ruby/2.3/head/railsexpress/01-skip-broken-tests.patch"
     "${patchSet}/patches/ruby/2.3/head/railsexpress/02-improve-gc-stats.patch"
